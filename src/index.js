@@ -4,9 +4,7 @@ const bot = require("venom-bot");
 const banco = require("./banco");
 const stages = require("./stages");
 
-bot.
-
-create()
+bot.create('session name', '', '', { browserArgs: ['--no-sandbox'] })
 .then((client) => start(client))
 .catch((erro) => {
   console.log(erro);
