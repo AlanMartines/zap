@@ -1,12 +1,11 @@
 // Supports ES6
 // import { create, Whatsapp } from 'sulla';
 const venom = require("venom-bot");
-const banco = require("./banco");
-const stages = require("./stages");
+const banco = require("./src/banco");
+const stages = require("./src/stages");
 
 venom.create('session name', '', '', {
-  useChrome: false,
-  browserArgs: ['--no-sandbox']
+  useChrome: false
 }).then((client) => start(client)).catch((erro) => {
   console.log(erro);
 });
