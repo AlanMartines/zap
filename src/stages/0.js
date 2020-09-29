@@ -1,5 +1,5 @@
 const banco = require("../banco");
-const greetings = ['olá', 'ola', 'oi', 'opa','boa tarde', 'bom dia', 'boa noite', 'tudo bem', 'td bem'];
+const greetings = ['olá', 'ola', 'oi', 'opa','boa tarde', 'bom dia', 'boa noite', 'tudo bem', 'td bem', 'vaga', 'culto'];
 function execute(user, msg, contato) {
   let search = false
   const msgArray =  msg.split(" ")
@@ -16,15 +16,22 @@ function execute(user, msg, contato) {
   banco.db[user].stage = 1;
 
   return [
-    `Olá ${contato}, estamos agendando os nomes para participação dos cultos na IPI Conceição da Aparecida.`,
-    `Atualmente estamos tendo os seguintes cultos:
-    _Quarta-feira 19h_ - \`\`\`Reunião de oração\`\`\`
-    _Domingo      09h_ - \`\`\`EBD\`\`\`
-    _Domingo      19h_ - \`\`\`Culto Dominical\`\`\``,
+    `Olá${ contato ? '! '+contato : ', '}estamos agendando os nomes para participação dos cultos na IPI Conceição da Aparecida.`,
+    `Atualmente estamos tendo os seguintes cultos:\n
+\`\`\`▫️Quarta-feira 19h - Reunião de oração
+    \n▫️Domingo      09h - EBD
+    \n▫️Domingo      19h - Culto Dominical\n\`\`\``,
     `Por favor envie quais cultos deseja participar e os nomes completos dos participantes:`
   ];
-}else{
-  
+} else {
+  return [
+    `Olá${ contato ? '! '+contato : ', '}estamos agendando os nomes para participação dos cultos na IPI Conceição da Aparecida.`,
+    `Atualmente estamos tendo os seguintes cultos:\n
+\`\`\`▫️Quarta-feira 19h - Reunião de oração
+    \n▫️Domingo      09h - EBD
+    \n▫️Domingo      19h - Culto Dominical\n\`\`\``,
+    `Por favor envie quais cultos deseja participar e os nomes completos dos participantes:`
+  ];
 }
 
 }

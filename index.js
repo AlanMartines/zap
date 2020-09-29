@@ -1,5 +1,3 @@
-// Supports ES6
-// import { create, Whatsapp } from 'sulla';
 const venom = require("venom-bot");
 const banco = require("./src/banco");
 const stages = require("./src/stages");

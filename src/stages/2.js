@@ -1,29 +1,28 @@
 const banco = require("../banco");
-
-function execute(user, msg) {
-  if (msg === "*") {
-    banco.db[user].stage = 0;
-    return ["Pedido cancelado com sucesso"];
+const cultos = ['culto', 'cultos', 'horário', 'horario', 'agenda', 'reunião', 'reuniões', 'ebd', 'dominical', 'noite', 'amanhã', 'hoje' ];
+function execute(user, msg, contato) {
+  let search = false
+  const msgArray =  msg.split(" ")
+  console.log(msgArray)
+  for(var i=0; i<msgArray.length; i++) {
+    console.log(msgArray[i])
+    if(cultos.includes(msgArray[i].toLowerCase())){
+      search = true
+      break
+    }
   }
+  if (search) {
 
-  if (msg === "#") {
-    banco.db[user].stage = 3;
-    return ["Digite o endereço por favor :"];
-  }
+  banco.db[user].stage = 3;
 
-  let resumo = "  RESUMO DO PEDIDO \n";
-  let total = 0;
-  banco.db[user].itens.forEach((value) => {
-    console.log(value);
-    resumo += `${value.descricao} ----------------  ${value.preco} \n`;
+  return [
+    `Atualmente estamos tendo os seguintes cultos:\n
+\`\`\`▫️Quarta-feira 19h - Reunião de oração
+    \n▫️Domingo      09h - EBD
+    \n▫️Domingo      19h - Culto Dominical\n\`\`\``,
+  ];
+}
 
-    total += value.preco;
-  });
-
-  resumo += "-------------------------\n";
-  resumo += ` Total R$ ${total}`;
-
-  return [resumo, "Para confirmar digite # ou para cancelar digite * "];
 }
 
 exports.execute = execute;
