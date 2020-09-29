@@ -24,6 +24,7 @@ function execute(user, msg, contato) {
     `Por favor envie quais cultos deseja participar e os nomes completos dos participantes:`
   ];
 } else {
+  banco.db[user].stage = 1;
   return [
     `Olá, estamos agendando os nomes para participação dos cultos na IPI Conceição da Aparecida.`,
     `Atualmente estamos tendo os seguintes cultos:\n
