@@ -16,7 +16,7 @@ function execute(user, msg, contato) {
   banco.db[user].stage = 1;
 
   return [
-    `Olá${ contato ? '! '+contato : ', '}estamos agendando os nomes para participação dos cultos na IPI Conceição da Aparecida.`,
+    `Olá, estamos agendando os nomes para participação dos cultos na IPI Conceição da Aparecida.`,
     `Atualmente estamos tendo os seguintes cultos:\n
 \`\`\`▫️Quarta-feira 19h - Reunião de oração
     \n▫️Domingo      09h - EBD
@@ -25,7 +25,7 @@ function execute(user, msg, contato) {
   ];
 } else {
   return [
-    `Olá${ contato ? '! '+contato : ', '}estamos agendando os nomes para participação dos cultos na IPI Conceição da Aparecida.`,
+    `Olá, estamos agendando os nomes para participação dos cultos na IPI Conceição da Aparecida.`,
     `Atualmente estamos tendo os seguintes cultos:\n
 \`\`\`▫️Quarta-feira 19h - Reunião de oração
     \n▫️Domingo      09h - EBD
